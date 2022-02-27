@@ -69,7 +69,7 @@ namespace classwork {
     /**
      * Проверка пустоты стека.
      *
-     * @return true - если стек пуст, false - в стеке есть элементы
+     * @return true - операция успешна, false - операция невозможна (стек пустой)
      */
     bool IsEmpty() const override;
 
