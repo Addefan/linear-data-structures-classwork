@@ -27,13 +27,9 @@ add_library(linked_list STATIC src/linked_list.cpp)
 target_sources(linked_list PUBLIC include/classwork/node.hpp include/classwork/linked_list.hpp)
 target_include_directories(linked_list PUBLIC include)
 
-add_library(stack STATIC src/array_stack.cpp src/linked_stack.cpp)
+add_library(stack STATIC src/array_stack.cpp)
+target_sources(stack PUBLIC include/classwork/private/stack.hpp include/classwork/array_stack.hpp)
 target_include_directories(stack PUBLIC include)
-
-target_sources(stack PUBLIC
-        include/classwork/private/stack.hpp
-        include/classwork/array_stack.hpp
-        include/classwork/linked_stack.hpp)
 
 add_library(queue STATIC src/linked_queue.cpp)
 target_sources(queue PUBLIC include/classwork/private/queue.hpp include/classwork/linked_queue.hpp)
