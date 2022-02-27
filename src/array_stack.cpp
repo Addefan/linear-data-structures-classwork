@@ -1,4 +1,3 @@
-#include "classwork/private/stack.hpp"
 #include "classwork/array_stack.hpp"
 
 #include <stdexcept>  // runtime_error, invalid_argument
