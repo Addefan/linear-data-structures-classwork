@@ -31,7 +31,7 @@ namespace classwork {
     // Write your code here ...
   }
 
-  void DynamicArray::Set(int index, int value) {
+  void DynamicArray::Set(int index, int new_value) {
     internal::check_out_of_range(index, 0, size_);
     // Write your code here ...
   }
