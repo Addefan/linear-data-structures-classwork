@@ -28,11 +28,12 @@ target_sources(linked_list PUBLIC include/classwork/node.hpp include/classwork/l
 target_include_directories(linked_list PUBLIC include)
 
 add_library(stack STATIC src/array_stack.cpp src/linked_stack.cpp)
-target_sources(stack PUBLIC include/classwork/private/stack.hpp
+target_include_directories(stack PUBLIC include)
+
+target_sources(stack PUBLIC
+        include/classwork/private/stack.hpp
         include/classwork/array_stack.hpp
         include/classwork/linked_stack.hpp)
-
-target_include_directories(stack PUBLIC include)
 
 # Executables
 add_executable(run_${PROJECT_NAME} main.cpp)
