@@ -19,13 +19,19 @@ option(ENABLE_COMPILER_WARNINGS "Project compile warnings." ON)
 cmake_print_variables(CMAKE_BUILD_TYPE ENABLE_COMPILER_WARNINGS CMAKE_CXX_FLAGS)
 
 # Libraries
-add_library(dynamic_array STATIC src/dynamic_array.cpp include/classwork/dynamic_array.hpp)
+add_library(dynamic_array STATIC src/dynamic_array.cpp)
+target_sources(dynamic_array PUBLIC include/classwork/dynamic_array.hpp)
 target_include_directories(dynamic_array PUBLIC include)
 
-add_library(linked_list STATIC src/linked_list.cpp include/classwork/linked_list.hpp)
+add_library(linked_list STATIC src/linked_list.cpp)
+target_sources(linked_list PUBLIC include/classwork/node.hpp include/classwork/linked_list.hpp)
 target_include_directories(linked_list PUBLIC include)
 
-add_library(stack STATIC src/array_stack.cpp include/classwork/private/stack.hpp)
+add_library(stack STATIC src/array_stack.cpp src/linked_stack.cpp)
+target_sources(stack PUBLIC include/classwork/private/stack.hpp
+        include/classwork/array_stack.hpp
+        include/classwork/linked_stack.hpp)
+
 target_include_directories(stack PUBLIC include)
 
 # Executables

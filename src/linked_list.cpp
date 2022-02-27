@@ -4,8 +4,6 @@
 
 namespace classwork {
 
-  Node::Node(int value, Node* next) : value{value}, next{next} {}
-
   LinkedList::~LinkedList() {
     Clear();
   }
