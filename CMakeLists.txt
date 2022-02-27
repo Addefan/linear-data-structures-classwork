@@ -25,9 +25,12 @@ target_include_directories(dynamic_array PUBLIC include)
 add_library(linked_list STATIC src/linked_list.cpp include/classwork/linked_list.hpp)
 target_include_directories(linked_list PUBLIC include)
 
+add_library(stack STATIC src/array_stack.cpp include/classwork/private/stack.hpp)
+target_include_directories(stack PUBLIC include)
+
 # Executables
 add_executable(run_${PROJECT_NAME} main.cpp)
-target_link_libraries(run_${PROJECT_NAME} PRIVATE dynamic_array linked_list)
+target_link_libraries(run_${PROJECT_NAME} PRIVATE dynamic_array linked_list stack)
 
 # Warnings
 if (ENABLE_COMPILER_WARNINGS)
