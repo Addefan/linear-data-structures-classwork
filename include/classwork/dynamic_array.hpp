@@ -63,7 +63,7 @@ namespace classwork {
      * Увеличение емкости массива ~ O(n).
      *
      * @param new_capacity - новая емкость массива
-     * @throws invalid_argument при указании новой емкости массива меньше и равному предыдущей
+     * @throws invalid_argument при указании новой емкости массива меньше или равному предыдущей
      */
     void Resize(int new_capacity);
 
