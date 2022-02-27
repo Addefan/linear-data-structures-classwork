@@ -25,7 +25,7 @@ namespace classwork {
     /**
      * Добавление элемента на вершину стека ~ O(1).
      *
-     * @param value - значение добавляемого элемента.
+     * @param value - значение добавляемого элемента
      */
     void Push(int value) override;
 
