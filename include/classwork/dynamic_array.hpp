@@ -11,8 +11,8 @@ namespace classwork {
   struct DynamicArray {
    private:
     // поля структуры
-    int size_{0};      // размер (кол-во элементов в массиве)
-    int capacity_{0};  // емкость (кол-во ячеек под элементы в массиве)
+    int size_{0};      // размер
+    int capacity_{0};  // емкость
     int* data_{nullptr};  // указатель на начало непрерывного блока памяти под массив
 
    public:
