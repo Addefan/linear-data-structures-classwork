@@ -1,4 +1,4 @@
-# C++ classwork template
+# Linear Data Structures classwork
 
 [![Build Status](../../actions/workflows/cmake.yml/badge.svg)](../../actions/workflows/cmake.yml)
 
@@ -18,7 +18,7 @@
 
 Склонируйте/импортируйте репозиторий при помощи среды разработки или вручную через терминал:
 ```shell
-git clone https://github.com/Algorithms-and-Data-Structures-2022/cpp-classwork-template.git
+git clone https://github.com/Algorithms-and-Data-Structures-2022/linear-data-structures-classwork.git
 ```
 
 Сборка и запуск проекта осуществляются через среду разработки. 
