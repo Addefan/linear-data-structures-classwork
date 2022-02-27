@@ -18,6 +18,10 @@ option(ENABLE_COMPILER_WARNINGS "Project compile warnings." ON)
 
 cmake_print_variables(CMAKE_BUILD_TYPE ENABLE_COMPILER_WARNINGS CMAKE_CXX_FLAGS)
 
+# Libraries
+add_library(dynamic_array STATIC src/dynamic_array.cpp include/classwork/dynamic_array.hpp)
+target_include_directories(dynamic_array PUBLIC include)
+
 # Executables
 add_executable(run_${PROJECT_NAME} main.cpp)
 
