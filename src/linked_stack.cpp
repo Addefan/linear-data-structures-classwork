@@ -1,7 +1,5 @@
 #include "classwork/linked_stack.hpp"
 
-#include <stdexcept>  // runtime_error
-
 namespace classwork {
 
   LinkedStack::~LinkedStack() {
@@ -12,8 +10,9 @@ namespace classwork {
     // Write your code here ...
   }
 
-  void LinkedStack::Pop() {
+  bool LinkedStack::Pop() {
     // Write your code here ...
+    return false;
   }
 
   void LinkedStack::Clear() {

@@ -1,6 +1,6 @@
 #include "classwork/array_stack.hpp"
 
-#include <stdexcept>  // runtime_error, invalid_argument
+#include <stdexcept>  // invalid_argument
 
 namespace classwork {
 
@@ -19,8 +19,9 @@ namespace classwork {
     // Write your code here ...
   }
 
-  void ArrayStack::Pop() {
+  bool ArrayStack::Pop() {
     // Write your code here ...
+    return false;
   }
 
   void ArrayStack::Clear() {

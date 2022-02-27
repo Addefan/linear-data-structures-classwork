@@ -1,8 +1,7 @@
 #pragma once
 
-#include "classwork/node.hpp"             // None
+#include "classwork/node.hpp"             // Node
 #include "classwork/private/stack.hpp"    // Stack
-#include "classwork/private/private.hpp"  // check_out_of_range
 
 namespace classwork {
 
@@ -33,9 +32,9 @@ namespace classwork {
     /**
      * Удаление элемента с вершины стека (конца массива) ~ O(1).
      *
-     * @throws runtime_error при вызове метода над пустым стеком
+     * @return true - операция возможна (при непустом стеке), false - операция невозможна (при пустом стеке)
      */
-    void Pop() override;
+    bool Pop() override;
 
     /**
      * Очистка стека ~ O(n).
