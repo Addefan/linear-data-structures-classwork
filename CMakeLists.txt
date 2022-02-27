@@ -22,9 +22,12 @@ cmake_print_variables(CMAKE_BUILD_TYPE ENABLE_COMPILER_WARNINGS CMAKE_CXX_FLAGS)
 add_library(dynamic_array STATIC src/dynamic_array.cpp include/classwork/dynamic_array.hpp)
 target_include_directories(dynamic_array PUBLIC include)
 
+add_library(linked_list STATIC src/linked_list.cpp include/classwork/linked_list.hpp)
+target_include_directories(linked_list PUBLIC include)
+
 # Executables
 add_executable(run_${PROJECT_NAME} main.cpp)
-target_link_libraries(run_${PROJECT_NAME} PRIVATE dynamic_array)
+target_link_libraries(run_${PROJECT_NAME} PRIVATE dynamic_array linked_list)
 
 # Warnings
 if (ENABLE_COMPILER_WARNINGS)
