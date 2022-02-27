@@ -24,6 +24,7 @@ target_include_directories(dynamic_array PUBLIC include)
 
 # Executables
 add_executable(run_${PROJECT_NAME} main.cpp)
+target_link_libraries(run_${PROJECT_NAME} PRIVATE dynamic_array)
 
 # Warnings
 if (ENABLE_COMPILER_WARNINGS)
