@@ -35,9 +35,13 @@ target_sources(stack PUBLIC
         include/classwork/array_stack.hpp
         include/classwork/linked_stack.hpp)
 
+add_library(queue STATIC src/linked_queue.cpp)
+target_sources(queue PUBLIC include/classwork/private/queue.hpp include/classwork/linked_queue.hpp)
+target_include_directories(queue PUBLIC include)
+
 # Executables
 add_executable(run_${PROJECT_NAME} main.cpp)
-target_link_libraries(run_${PROJECT_NAME} PRIVATE dynamic_array linked_list stack)
+target_link_libraries(run_${PROJECT_NAME} PRIVATE dynamic_array linked_list stack queue)
 
 # Warnings
 if (ENABLE_COMPILER_WARNINGS)
