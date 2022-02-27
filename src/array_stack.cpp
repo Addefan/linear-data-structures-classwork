@@ -43,4 +43,16 @@ namespace classwork {
     return 0;
   }
 
+  int ArrayStack::capacity() const {
+    // Write your code here ...
+    return 0;
+  }
+
+  void ArrayStack::Resize(int new_capacity) {
+    if (new_capacity <= capacity_) {
+      throw std::invalid_argument("new capacity does not exceed current capacity");
+    }
+    // Write your code here ...
+  }
+
 }  // namespace classwork

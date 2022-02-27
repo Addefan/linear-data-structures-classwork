@@ -79,6 +79,21 @@ namespace classwork {
      * @return кол-во элементов в стеке
      */
     int size() const override;
+
+    /**
+     * Возвращает емкость стека.
+     *
+     * @return кол-во выделенных ячеек в стеке
+     */
+    int capacity() const;
+
+    /**
+     * Увеличение емкости стека ~ O(n).
+     *
+     * @param new_capacity - новая емкость стека
+     * @throws invalid_argument при указании новой емкости стека меньше или равному предыдущей
+     */
+    void Resize(int new_capacity);
   };
 
 }  // namespace classwork
