@@ -1,5 +1,7 @@
 #pragma once
 
+#include "classwork/private/list.hpp"  // List
+
 namespace classwork {
 
   /**
@@ -8,7 +10,7 @@ namespace classwork {
    * Характеризуется емкостью (capacity) и фактическим кол-ом элементов (size).
    * Все элементы находятся последовательно в памяти, что гарантируется доступ к ним за O(1).
    */
-  struct DynamicArray {
+  struct DynamicArray : List {
    private:
     // поля структуры
     int size_{0};      // размер
@@ -36,7 +38,7 @@ namespace classwork {
      *
      * Высвобождает выделенную под массив память и устанавливает поля в нулевые значения.
      */
-    ~DynamicArray();
+    ~DynamicArray() override;
 
     /**
      * Добавление элемента в конец массива ~ O(1) или O(n).
@@ -45,7 +47,7 @@ namespace classwork {
      *
      * @param value - значение добавляемого элемента
      */
-    void Add(int value);
+    void Add(int value) override;
 
     /**
      * Вставка элемента в массив по индексу ~ O(n).
@@ -57,7 +59,7 @@ namespace classwork {
      * @param value - значение вставляемого элемента
      * @throws out_of_range при передаче индекса за пределами массива
      */
-    void Insert(int index, int value);
+    void Insert(int index, int value) override;
 
     /**
      * Увеличение емкости массива ~ O(n).
@@ -74,7 +76,7 @@ namespace classwork {
      * @param new_value - новое значение элемента массива
      * @throws out_of_range при передаче индекса за пределами массива
      */
-    void Set(int index, int new_value);
+    void Set(int index, int new_value) override;
 
     /**
      * Удаление элемента массива по индексу ~ O(n).
@@ -86,7 +88,7 @@ namespace classwork {
      * @return значение удаленного элемента массива
      * @throws out_of_range при передаче индекса за пределами массива
      */
-    int Remove(int index);
+    int Remove(int index) override;
 
     /**
      * Очистка массива ~ O(n).
@@ -94,7 +96,7 @@ namespace classwork {
      * Емкость массива снижается до значения kInitCapacity.
      * Все ячейки массива устанавливаются в нулевое значение, размер массива обнуляется.
      */
-    void Clear();
+    void Clear() override;
 
     /**
      * Получение элемента массива по индексу ~ O(1).
@@ -103,7 +105,7 @@ namespace classwork {
      * @return значение элемента массива
      * @throws out_of_range при передаче индекса за пределами массива
      */
-    int Get(int index) const;
+    int Get(int index) const override;
 
     /**
      * Поиск индекса первого вхождения элемента с указанным значением ~ O(n).
@@ -111,7 +113,7 @@ namespace classwork {
      * @param value - значение элемента массива
      * @return индекс найденного элемента или kNotFoundIndex - при его отсутствии
      */
-    int IndexOf(int value) const;
+    int IndexOf(int value) const override;
 
     /**
      * Проверка наличия элемента в массиве по значению ~ O(n).
@@ -119,7 +121,7 @@ namespace classwork {
      * @param value - значение элемента массива
      * @return true - при наличии элемента в массиве, false - при его отсутствии
      */
-    bool Contains(int value) const;
+    bool Contains(int value) const override;
 
     /**
      * Проверка пустоты массива ~ O(1).
@@ -128,14 +130,14 @@ namespace classwork {
      *
      * @return true - если массив пустой, false - в массиве есть элементы
      */
-    bool IsEmpty() const;
+    bool IsEmpty() const override;
 
     /**
      * Возвращает фактический размер массива ~ O(1).
      *
      * @return количество элементов в массиве
      */
-    int size() const;
+    int size() const override;
 
     /**
      * Возвращает емкость массива ~ O(1).
@@ -144,9 +146,5 @@ namespace classwork {
      */
     int capacity() const;
   };
-
-  // внутренние проверки
-  static_assert(DynamicArray::kInitCapacity > 0, "DynamicArray initial capacity must have a positive value");
-  static_assert(DynamicArray::kCapacityGrowthCoefficient > 1, "DynamicArray growth rate must be greater than one");
 
 }  // namespace classwork

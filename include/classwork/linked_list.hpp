@@ -1,6 +1,7 @@
 #pragma once
 
-#include "classwork/node.hpp"  // Node
+#include "classwork/node.hpp"          // Node
+#include "classwork/private/list.hpp"  // List
 
 namespace classwork {
 
@@ -10,7 +11,7 @@ namespace classwork {
    * Хранит элементы в виде цепочки "узлов".
    * Характеризуется фактическим размером (size), указателем на первый (head) и последний (tail) узел.
    */
-  struct LinkedList {
+  struct LinkedList : List {
    private:
     // поля структуры
     int size_{0};          // кол-во узлов в списке
@@ -31,14 +32,14 @@ namespace classwork {
      *
      * Высвобождает выделенную под список память и устанавливает поля в нулевые значения.
      */
-    ~LinkedList();
+    ~LinkedList() override;
 
     /**
      * Добавление узла с указанным значением в конец списка ~ O(1).
      *
      * @param value - значение добавляемого узла
      */
-    void Add(int value);
+    void Add(int value) override;
 
     /**
      * Вставка узла с указанным значением в список по определенному индексу ~ O(n).
@@ -50,7 +51,7 @@ namespace classwork {
      * @param value - значение вставляемого узла
      * @throws out_of_range при передаче индекса за пределами списка
      */
-    void Insert(int index, int value);
+    void Insert(int index, int value) override;
 
     /**
      * Изменение значения узла списка по индексу ~ O(n).
@@ -59,7 +60,7 @@ namespace classwork {
      * @param new_value - новое значение узла списка
      * @throws out_of_range при передаче индекса за пределами списка
      */
-    void Set(int index, int new_value);
+    void Set(int index, int new_value) override;
 
     /**
      * Удаление узла списка по индексу ~ O(n).
@@ -71,14 +72,14 @@ namespace classwork {
      * @return значение удаленного узла списка
      * @throws out_of_range при передаче индекса за пределами списка
      */
-    int Remove(int index);
+    int Remove(int index) override;
 
     /**
      * Очистка списка ~ O(n).
      *
      * Высвобождение выделенной под узлы памяти и обнуление полей списка.
      */
-    void Clear();
+    void Clear() override;
 
     /**
      * Получение значения узла по индексу ~ O(n).
@@ -87,7 +88,7 @@ namespace classwork {
      * @return значение узла списка
      * @throws out_of_range при передаче индекса за пределами списка
      */
-    int Get(int index) const;
+    int Get(int index) const override;
 
     /**
      * Поиск индекса первого вхождения узла с указанным значением ~ O(n).
@@ -95,7 +96,7 @@ namespace classwork {
      * @param value - значение узла списка
      * @return индекс найденного узла или kNotFoundIndex - при его отсутствии
      */
-    int IndexOf(int value) const;
+    int IndexOf(int value) const override;
 
     /**
      * Проверка наличия узла в списке по значению ~ O(n).
@@ -103,7 +104,7 @@ namespace classwork {
      * @param value - значение узла списка
      * @return true - при наличии узла в списке, false - при его отсутствии
      */
-    bool Contains(int value) const;
+    bool Contains(int value) const override;
 
     /**
      * Проверка пустоты списка ~ O(1).
@@ -112,14 +113,14 @@ namespace classwork {
      *
      * @return true - если список пустой, false - в списке есть узлы
      */
-    bool IsEmpty() const;
+    bool IsEmpty() const override;
 
     /**
      * Возвращает размер списка ~ O(1).
      *
      * @return количество узлов в списке
      */
-    int size() const;
+    int size() const override;
 
     /**
      * Возвращает значение начального узла списка ~ O(1).

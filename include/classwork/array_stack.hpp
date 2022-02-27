@@ -1,7 +1,6 @@
 #pragma once
 
 #include "classwork/private/stack.hpp"    // Stack
-#include "classwork/private/private.hpp"  // check_out_of_range
 
 namespace classwork {
 
