@@ -1,5 +1,7 @@
 #include "classwork/dynamic_array.hpp"
 
+#include <stdexcept> // invalid_argument
+
 #include "classwork/private/private.hpp"  // check_out_of_range
 
 namespace classwork {
