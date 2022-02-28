@@ -48,7 +48,7 @@ namespace classwork {
     /**
      * Проверка пустоты стека.
      *
-     * @return true - если стек пуст, false - в стеке есть элементы
+     * @return true - если стек пустой, false - в стеке есть элементы
      */
     virtual bool IsEmpty() const = 0;
 
