@@ -77,7 +77,7 @@ namespace classwork {
     int Remove(int index) override;
 
     /**
-     * Очистка массива ~ O(n).
+     * Очистка массива ~ O(1).
      *
      * Обнуляет размер массива.
      */

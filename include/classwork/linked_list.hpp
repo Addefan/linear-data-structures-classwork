@@ -12,7 +12,7 @@ namespace classwork {
   struct LinkedList : List {
    private:
     // поля структуры
-    int size_{0};          // кол-вод узлов в списке
+    int size_{0};          // кол-во узлов в списке
     Node* head_{nullptr};  // указатель на первый узел (начало списка)
     Node* tail_{nullptr};  // указатель на последний узел (конец списка)
 
