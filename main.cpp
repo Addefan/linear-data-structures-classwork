@@ -10,10 +10,14 @@ using namespace classwork;
 
 int main(int argc, char **argv) {
 
-  DynamicArray array;
   LinkedList list;
+
+  DynamicArray array;
+
   ArrayStack arr_stack;
+
   LinkedQueue linked_queue;
+
   LinkedDeque linked_deque;
 
   // Write your code here ...
