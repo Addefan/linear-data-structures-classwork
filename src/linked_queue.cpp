@@ -1,6 +1,7 @@
 #include "classwork/linked_queue.hpp"
 
 namespace classwork {
+
   LinkedQueue::~LinkedQueue() {
     Clear();
   }

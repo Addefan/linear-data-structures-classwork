@@ -1,6 +1,7 @@
 #include "classwork/linked_deque.hpp"
 
 namespace classwork {
+
   LinkedDeque::~LinkedDeque() {
     // Write your code here ...
   }

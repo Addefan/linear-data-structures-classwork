@@ -16,7 +16,6 @@ namespace classwork {
     Node* back_{nullptr};   // указатель на конец очереди
 
    public:
-
     /**
      * Создание пустой очереди ~ O(1).
      *

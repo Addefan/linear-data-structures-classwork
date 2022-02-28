@@ -1,6 +1,6 @@
 #include "classwork/dynamic_array.hpp"
 
-#include <stdexcept> // invalid_argument
+#include <stdexcept>  // invalid_argument
 
 #include "classwork/private/private.hpp"  // check_out_of_range
 
@@ -23,13 +23,6 @@ namespace classwork {
 
   void DynamicArray::Insert(int index, int value) {
     internal::check_out_of_range(index, 0, size_);
-    // Write your code here ...
-  }
-
-  void DynamicArray::Resize(int new_capacity) {
-    if (new_capacity <= capacity_) {
-      throw std::invalid_argument("new capacity does not exceed current capacity");
-    }
     // Write your code here ...
   }
 
@@ -77,6 +70,13 @@ namespace classwork {
   int DynamicArray::capacity() const {
     // Write your code here ...
     return 0;
+  }
+
+  void DynamicArray::Resize(int new_capacity) {
+    if (new_capacity <= capacity_) {
+      throw std::invalid_argument("new capacity does not exceed current capacity");
+    }
+    // Write your code here ...
   }
 
 }  // namespace classwork
