@@ -1,82 +1,85 @@
 #include "classwork/dynamic_array.hpp"
 
+#include <algorithm>  // copy, fill
 #include <stdexcept>  // invalid_argument
-
-#include "classwork/private/private.hpp"  // check_out_of_range
 
 namespace classwork {
 
   DynamicArray::DynamicArray(int capacity) {
+
+    // выбрасываем ошибку, если указана неположительная емкость массива
     if (capacity <= 0) {
       throw std::invalid_argument("capacity is not positive");
     }
+
     // Write your code here ...
   }
 
   DynamicArray::~DynamicArray() {
+
     // Write your code here ...
   }
 
   void DynamicArray::Add(int value) {
+
     // Write your code here ...
   }
 
-  void DynamicArray::Insert(int index, int value) {
-    internal::check_out_of_range(index, 0, size_);
+  bool DynamicArray::Insert(int index, int value) {
+
     // Write your code here ...
+    return false;
   }
 
-  void DynamicArray::Set(int index, int new_value) {
-    internal::check_out_of_range(index, 0, size_);
+  bool DynamicArray::Set(int index, int new_value) {
+
     // Write your code here ...
+    return false;
   }
 
-  int DynamicArray::Remove(int index) {
-    internal::check_out_of_range(index, 0, size_);
+  std::optional<int> DynamicArray::Remove(int index) {
+
     // Write your code here ...
-    return 0;
+    return std::nullopt;
   }
 
   void DynamicArray::Clear() {
+
     // Write your code here ...
   }
 
-  int DynamicArray::Get(int index) const {
-    internal::check_out_of_range(index, 0, size_);
+  std::optional<int> DynamicArray::Get(int index) const {
+
     // Write your code here ...
-    return 0;
+    return std::nullopt;
   }
 
-  int DynamicArray::IndexOf(int value) const {
+  std::optional<int> DynamicArray::IndexOf(int value) const {
+
     // Write your code here ...
-    return 0;
+    return std::nullopt;
   }
 
   bool DynamicArray::Contains(int value) const {
-    // Write your code here ...
     return false;
   }
 
   bool DynamicArray::IsEmpty() const {
-    // Write your code here ...
     return false;
   }
 
   int DynamicArray::size() const {
-    // Write your code here ...
     return 0;
   }
 
   int DynamicArray::capacity() const {
-    // Write your code here ...
     return 0;
   }
 
-  void DynamicArray::Resize(int new_capacity) {
-    if (new_capacity <= capacity_) {
-      throw std::invalid_argument("new capacity does not exceed current capacity");
-    }
+  bool DynamicArray::Resize(int new_capacity) {
+
     // Write your code here ...
+    return false;
   }
 
 }  // namespace classwork

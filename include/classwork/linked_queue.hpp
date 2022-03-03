@@ -18,8 +18,6 @@ namespace classwork {
    public:
     /**
      * Создание пустой очереди ~ O(1).
-     *
-     * Инициализирует поля нулевыми значениями.
      */
     LinkedQueue() = default;
 

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <optional>
+
 namespace classwork {
 
   /**
@@ -28,27 +30,26 @@ namespace classwork {
      *
      * @param index - позиция для вставки элемента в список
      * @param value  - значение вставляемого элемента
-     * @throws out_of_range при передаче индекса за пределами списка
+     * @return true - операция прошла успешно, false - индекс за пределами списка
      */
-    virtual void Insert(int index, int value) = 0;
+    virtual bool Insert(int index, int value) = 0;
 
     /**
      * Изменение значения элемента списка по индексу.
      *
      * @param index - позиция изменяемого элемента в списке
      * @param new_value - новое значение элемента
-     * @throws out_of_range при передаче индекса за пределами списка
+     * @return true - операция прошла успешно, false - индекс за пределами списка
      */
-    virtual void Set(int index, int new_value) = 0;
+    virtual bool Set(int index, int new_value) = 0;
 
     /**
      * Удаление элемента из списка по индексу.
      *
      * @param index - позиция удаляемого элемента в списке
-     * @return значение удаленного элемента
-     * @throws out_of_range при передаче индекса за пределами списка
+     * @return значение удаленного элемента или ничего (индекс за пределами списка)
      */
-    virtual int Remove(int index) = 0;
+    virtual std::optional<int> Remove(int index) = 0;
 
     /**
      * Очистка списка.
@@ -61,18 +62,17 @@ namespace classwork {
      * Получение значения элемента списка по индексу.
      *
      * @param index - позиция элемента в списке
-     * @return значение найденного элемента
-     * @throws out_of_range при передаче индекса за пределами списка
+     * @return значение найденного элемента или ничего (индекс за пределами списка)
      */
-    virtual int Get(int index) const = 0;
+    virtual std::optional<int> Get(int index) const = 0;
 
     /**
      * Поиск индекса первого вхождения элемента с указанным значением.
      *
      * @param value - значение элемента
-     * @return индекс найденного элемента или kNotFoundIndex - при отсутствии элемента
+     * @return индекс найденного элемента или ничего (в случае отсутствия элемента)
      */
-    virtual int IndexOf(int value) const = 0;
+    virtual std::optional<int> IndexOf(int value) const = 0;
 
     /**
      * Проверка наличия элемента в списке по значению.

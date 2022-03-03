@@ -1,74 +1,78 @@
 #include "classwork/linked_list.hpp"
 
-#include "classwork/private/private.hpp"  // check_out_of_range
-
 namespace classwork {
 
   LinkedList::~LinkedList() {
-    Clear();
+
+    // Write your code here ...
   }
 
   void LinkedList::Add(int value) {
+
     // Write your code here ...
   }
 
-  void LinkedList::Insert(int index, int value) {
-    internal::check_out_of_range(index, 0, size_);
+  bool LinkedList::Insert(int index, int value) {
+
     // Write your code here ...
+    return false;
   }
 
-  void LinkedList::Set(int index, int new_value) {
-    internal::check_out_of_range(index, 0, size_);
+  bool LinkedList::Set(int index, int new_value) {
+
     // Write your code here ...
+    return false;
   }
 
-  int LinkedList::Remove(int index) {
-    internal::check_out_of_range(index, 0, size_);
+  std::optional<int> LinkedList::Remove(int index) {
+
     // Write your code here ...
-    return 0;
+    return std::nullopt;
   }
 
   void LinkedList::Clear() {
+
     // Write your code here ...
   }
 
-  int LinkedList::Get(int index) const {
-    internal::check_out_of_range(index, 0, size_);
+  std::optional<int> LinkedList::Get(int index) const {
+
     // Write your code here ...
-    return 0;
+    return std::nullopt;
   }
 
-  int LinkedList::IndexOf(int value) const {
+  std::optional<int> LinkedList::IndexOf(int value) const {
+
     // Write your code here ...
-    return 0;
+    return std::nullopt;
   }
 
   bool LinkedList::Contains(int value) const {
-    // Write your code here ...
     return false;
   }
 
   bool LinkedList::IsEmpty() const {
-    // Write your code here ...
     return false;
   }
 
   int LinkedList::size() const {
-    // Write your code here ...
     return 0;
   }
 
-  int LinkedList::head() const {
+  std::optional<int> LinkedList::front() const {
+
     // Write your code here ...
-    return 0;
+    return std::nullopt;
   }
 
-  int LinkedList::tail() const {
+  std::optional<int> LinkedList::back() const {
+
     // Write your code here ...
-    return 0;
+    return std::nullopt;
   }
 
   Node* LinkedList::FindNode(int index) const {
+
     // Write your code here ...
     return nullptr;
   }

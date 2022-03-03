@@ -1,6 +1,6 @@
 #pragma once
 
-#include "classwork/private/stack.hpp"  // Stack
+#include "classwork//private/stack.hpp"  // Stack
 
 namespace classwork {
 
@@ -92,9 +92,9 @@ namespace classwork {
      * Увеличение емкости стека ~ O(n).
      *
      * @param new_capacity - новая емкость стека
-     * @throws invalid_argument при указании емкости не больше предыдущей
+     * @return true - операция прошла успешно, false - новая емкость меньше или равна текущей
      */
-    void Resize(int new_capacity);
+    bool Resize(int new_capacity);
   };
 
 }  // namespace classwork

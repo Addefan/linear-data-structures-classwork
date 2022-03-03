@@ -19,7 +19,6 @@ namespace classwork {
    public:
     // константы структуры
     static constexpr int kInitCapacity = 10;  // начальная емкость массива
-    static constexpr int kNotFoundIndex = -1;  // индекс ненайденного элемента в массиве
     static constexpr int kCapacityGrowthCoefficient = 5;  // коэффициент увеличения размера массива
 
     /**
@@ -43,7 +42,8 @@ namespace classwork {
     /**
      * Добавление элемента в конец массива ~ O(1) или O(n).
      *
-     * При недостаточной емкости массив расширяется с сохранением элементов.
+     * При недостаточной емкости массив расширяется
+     * на kCapacityGrowthCoefficient с сохранением элементов.
      *
      * @param value - значение добавляемого элемента
      */
@@ -52,29 +52,31 @@ namespace classwork {
     /**
      * Вставка элемента в массив по индексу ~ O(n).
      *
+     * При недостаточной емкости массив расширяется
+     * на kCapacityGrowthCoefficient с сохранением элементов.
+     *
      * @param index - позиция для вставки элемента в массив
      * @param value - значение вставляемого элемента
-     * @throws out_of_range при передаче индекса за пределами массива
+     * @return true - операция прошла успешно, false - индекс за пределами массива
      */
-    void Insert(int index, int value) override;
+    bool Insert(int index, int value) override;
 
     /**
      * Изменение значения элемента массива по индексу ~ O(1).
      *
      * @param index - позиция изменяемого элемента в массиве
      * @param new_value - новое значение элемента
-     * @throws out_of_range при передаче индекса за пределами массива
+     * @return true - операция прошла успешно, false - индекс за пределами массива
      */
-    void Set(int index, int new_value) override;
+    bool Set(int index, int new_value) override;
 
     /**
      * Удаление элемента из массива по индексу ~ O(n).
      *
      * @param index - позиция удаляемого элемента в массиве
-     * @return значение удаленного элемента
-     * @throws out_of_range при передаче индекса за пределами массива
+     * @return значение удаленного элемента или ничего (индекс за пределами списка)
      */
-    int Remove(int index) override;
+    std::optional<int> Remove(int index) override;
 
     /**
      * Очистка массива ~ O(1).
@@ -87,18 +89,17 @@ namespace classwork {
      * Получение значения элемента массива по индексу ~ O(1).
      *
      * @param index - позиция элемента в массиве
-     * @return значение найденного элемента
-     * @throws out_of_range при передаче индекса за пределами массива
+     * @return значение найденного элемента или ничего (индекс за пределами списка)
      */
-    int Get(int index) const override;
+    std::optional<int> Get(int index) const override;
 
     /**
      * Поиск индекса первого вхождения элемента с указанным значением ~ O(n).
      *
      * @param value - значение элемента
-     * @return индекс найденного элемента или kNotFoundIndex - при отсутствии элемента
+     * @return индекс найденного элемента или ничего (в случае отсутствия элемента)
      */
-    int IndexOf(int value) const override;
+    std::optional<int> IndexOf(int value) const override;
 
     /**
      * Проверка наличия элемента в массиве по значению ~ O(n).
@@ -133,9 +134,9 @@ namespace classwork {
      * Увеличение емкости массива ~ O(n).
      *
      * @param new_capacity - новая емкость массива
-     * @throws invalid_argument при указании емкости не больше предыдущей
+     * @return true - операция прошла успешно, false - новая емкость меньше или равна текущей
      */
-    void Resize(int new_capacity);
+    bool Resize(int new_capacity);
   };
 
 }  // namespace classwork

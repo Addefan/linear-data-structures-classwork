@@ -12,14 +12,11 @@ namespace classwork {
   struct LinkedList : List {
    private:
     // поля структуры
-    int size_{0};          // кол-вод узлов в списке
-    Node* head_{nullptr};  // указатель на первый узел (начало списка)
-    Node* tail_{nullptr};  // указатель на последний узел (конец списка)
+    int size_{0};           // кол-вод узлов в списке
+    Node* front_{nullptr};  // указатель на начальный узел
+    Node* back_{nullptr};   // указатель на конечный узел
 
    public:
-    // константы структуры
-    static constexpr int kNotFoundIndex = -1;  // индекс ненайденного элемента в списке
-
     /**
      * Создание пустого связного списка ~ O(1).
      *
@@ -48,28 +45,27 @@ namespace classwork {
      *
      * @param index - позиция для вставки элемента в список
      * @param value - значение вставляемого элемента
-     * @throws out_of_range при передаче индекса за пределами списка
+     * @return true - операция прошла успешно, false - индекс за пределами списка
      */
-    void Insert(int index, int value) override;
+    bool Insert(int index, int value) override;
 
     /**
      * Изменение значения элемента списка по индексу ~ O(n).
      *
      * @param index - позиция изменяемого элемента списка
      * @param new_value - новое значение элемента
-     * @throws out_of_range при передаче индекса за пределами списка
+     * @return true - операция прошла успешно, false - индекс за пределами списка
      */
-    void Set(int index, int new_value) override;
+    bool Set(int index, int new_value) override;
 
     /**
      * Удаление элемента из списка по индексу ~ O(n).
      * Удаление элемента с начала списка ~ O(1).
      *
      * @param index - позиция удаляемого элемента в списке
-     * @return значение удаленного элемента
-     * @throws out_of_range при передаче индекса за пределами списка
+     * @return значение удаленного элемента или ничего (индекс за пределами списка)
      */
-    int Remove(int index) override;
+    std::optional<int> Remove(int index) override;
 
     /**
      * Очистка списка ~ O(n).
@@ -83,18 +79,17 @@ namespace classwork {
      * Получение значения элемента списка по индексу ~ O(n).
      *
      * @param index - позиция элемента в списке
-     * @return значение найденного элемента
-     * @throws out_of_range при передаче индекса за пределами списка
+     * @return значение найденного элемента или ничего (индекс за пределами списка)
      */
-    int Get(int index) const override;
+    std::optional<int> Get(int index) const override;
 
     /**
      * Поиск индекса первого вхождения узла с указанным значением ~ O(n).
      *
      * @param value - значение элемента
-     * @return индекс найденного элемента или kNotFoundIndex - при отсутствии элемента
+     * @return индекс найденного элемента или ничего (в случае отсутствия элемента)
      */
-    int IndexOf(int value) const override;
+    std::optional<int> IndexOf(int value) const override;
 
     /**
      * Проверка наличия элемента в списке по значению ~ O(n).
@@ -119,26 +114,26 @@ namespace classwork {
     int size() const override;
 
     /**
-     * Возвращает значение первого элемента списка ~ O(1).
+     * Возвращает начальный элемент списка ~ O(1).
      *
-     * @return значение первого элемента
+     * @return значение начального узла или ничего (индекс за пределами списка)
      */
-    int head() const;
+    std::optional<int> front() const;
 
     /**
-     * Возвращает значение последнего элемента списка ~ O(1).
+     * Возвращает конечный элемент списка ~ O(1).
      *
-     * @return значение последнего узла
+     * @return значение конечного узла или ничего (индекс за пределами списка)
      */
-    int tail() const;
+    std::optional<int> back() const;
 
     /**
      * Поиск узла по индексу ~ O(n).
      *
-     * Используется для операций над списком, выполняемым по индексу.
+     * Используется для операций над списком, выполняемых по индексу.
      *
      * @param index - позиция узла в списке
-     * @return указатель на найденный узел или nullptr - при некорректном значении позиции
+     * @return указатель на найденный узел или nullptr (индекс за пределами списка)
      */
     Node* FindNode(int index) const;
   };
